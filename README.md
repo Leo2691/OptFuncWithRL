@@ -3,7 +3,7 @@
 ## Description
 Global optimization with Reinforcement Learning for well-known test functions for optimization.
 Project has biuld for the research of applying of classical RL Policy-methods for solving optimization multidentional task (sequence of actions). Classical test optimization functions were used as example of surface for optimization (environment).
-Following types os multidimensional functions are supported:
+Following types of multidimensional functions are supported:
 1. Rastrigin  function.
 2. Rosenbrock function.
 
