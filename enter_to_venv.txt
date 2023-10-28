@@ -1,0 +1,6 @@
+cd Python/Alghoritms/RL/RL_glob_optim_tasks/
+. venv/bin/activate
+
+tensorboard --logdir "/Users/lev/Python/AlghoritmRL/Deep-Reinforcement-Learning-Hands-On-master/Chapter04/runs" --host localhost
+
+! mlflow server --backend-store-uri mlflow_db --default-artifact-root ./mlflowruns --host 127.0.0.1 --port 5001
