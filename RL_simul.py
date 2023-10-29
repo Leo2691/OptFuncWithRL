@@ -145,13 +145,20 @@ def main(path):
                 num_threads = args.parallel_mode['num_threads']
                 p = Pool(num_threads)
                 params = []
-                [params.append([net, start_state, args.range_values, args.seed + num]) for num in np.arange(num_threads)]
+                [params.append([net, start_state, args.range_values]) for num in np.arange(num_threads)]
                 res = p.map(distributor_acts, params)
 
-                [(batch_actions.append(set_v[0]),
-                  batch_values.append(set_v[1]),
-                  batch_rewards.append(Rastrigin_env(set_v[1])))
-                 for set_v in res]
+                if args.type_of_surf == 'Rastrigin':
+                    [(batch_actions.append(set_v[0]),
+                      batch_values.append(set_v[1]),
+                      batch_rewards.append(Rastrigin_env(set_v[1])))
+                     for set_v in res]
+
+                elif args.type_of_surf == 'Rosenbrock':
+                    [(batch_actions.append(set_v[0]),
+                      batch_values.append(set_v[1]),
+                      batch_rewards.append(Rosenbrock_env(set_v[1])))
+                     for set_v in res]
 
                 score = min(batch_rewards)
                 index_min = np.argmin(batch_rewards)

@@ -56,7 +56,9 @@ def get_action(net, start_state, range_values):
     return acts, list(values)
 
 def distributor_acts(option_args = []):
-    seed = option_args.pop(-1)
-    np.random.seed(seed)
+    # seed = option_args.pop(-1)
+    np.random.seed()
     acts, vals = get_action(*option_args)
+    # print('\n')
+    # print(acts) # for debugging
     return acts, vals
